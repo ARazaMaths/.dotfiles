@@ -117,7 +117,20 @@ if ! shopt -oq posix; then
 fi
 
 alias sudo='sudo env PATH=$PATH'
-export path PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
+PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
+export PATH MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
+export MANPATH INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 
+PATH=$HOME/.cargo/bin/:$PATH
+
+PATH=~/.local/share/bob/nvim-bin/:$PATH
 
 eval "$(starship init bash)"
+
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
