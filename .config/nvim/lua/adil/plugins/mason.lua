@@ -18,7 +18,10 @@ return {
 				ensure_installed = {
 					"ltex-ls",
 					"texlab",
-					"latexindent,",
+					"latexindent",
+					"stylua",
+					"lua-language-server",
+					"pyright",
 				},
 			},
 		})
