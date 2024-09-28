@@ -22,6 +22,9 @@ return {
 					"stylua",
 					"lua-language-server",
 					"pyright",
+					"isort",
+					"mypy",
+					"ruff",
 				},
 			},
 		})
