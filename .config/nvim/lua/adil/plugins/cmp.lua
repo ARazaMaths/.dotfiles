@@ -1,11 +1,12 @@
 return {
-
 	"hrsh7th/nvim-cmp",
 	event = "InsertEnter",
 	dependencies = {
 		"hrsh7th/cmp-buffer",
-		"SirVer/ultisnips",
 		"quangnguyen30192/cmp-nvim-ultisnips",
+		config = function()
+			require("cmp_nvim_ultisnips").setup({})
+		end,
 	},
 
 	config = function()
@@ -39,11 +40,5 @@ return {
 				{ name = "buffer" },
 			}),
 		})
-	end,
-
-	init = function()
-		vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-		vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-		vim.g.UltiSnipsSnippetDirectories = { "UltiSnips" }
 	end,
 }
