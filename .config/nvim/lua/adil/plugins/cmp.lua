@@ -10,10 +10,6 @@ return {
 	},
 
 	config = function()
-		vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-		vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-		vim.g.UltiSnipsSnippetDirectories = { "UltiSnips" }
-
 		local cmp = require("cmp")
 		cmp.setup({
 			snippet = {
