@@ -5,7 +5,6 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"SirVer/ultisnips",
-
 		"quangnguyen30192/cmp-nvim-ultisnips",
 	},
 
