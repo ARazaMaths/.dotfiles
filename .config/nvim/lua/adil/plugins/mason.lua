@@ -21,10 +21,6 @@ return {
 					"latexindent",
 					"stylua",
 					"lua-language-server",
-					"pyright",
-					"isort",
-					"mypy",
-					"ruff",
 				},
 			},
 		})

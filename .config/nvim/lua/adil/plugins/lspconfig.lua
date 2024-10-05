@@ -11,10 +11,6 @@ return {
 			capabilities = capabilities,
 		})
 
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-		})
-
 		lspconfig["ltex"].setup({
 			capabilities = capabilities,
 			settings = {
