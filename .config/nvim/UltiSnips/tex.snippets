@@ -17,6 +17,7 @@ snippet template "Basic template" b
 \usepackage{amsmath, amsthm, enumerate}
 \usepackage[margin = 4cm]{geometry}
 \usepackage{palatino, euler, amssymb, mathrsfs}
+${1:%}\usepackage{tikz-cd}
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
@@ -27,7 +28,7 @@ snippet template "Basic template" b
 \newtheorem{prop}[thm]{Proposition}
 \renewcommand{\phi}{\varphi}
 
-\title{$1}
+\title{$2}
 \author{Adil Raza}
 \date{}
 
@@ -35,7 +36,7 @@ snippet template "Basic template" b
 
 \maketitle
 
-$2
+$3
 
 \end{document}
 endsnippet
@@ -133,30 +134,30 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-#snippet / "Fraction" i
-#\\frac{${VISUAL}}{$1}$0
-#endsnippet
+snippet / "Fraction" i
+\\frac{${VISUAL}}{$1}$0
+endsnippet
 
-#context "math()"
-#snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
-#\\frac{`!p snip.rv = match.group(1)`}{$1}$0
-#endsnippet
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
 
-#priority 1000
-#context "math()"
-#snippet '^.*\)/' "() frac" wrA
-#`!p
-#stripped = match.string[:-1]
-#depth = 0
-#i = len(stripped) - 1
-#while True:
-#	if stripped[i] == ')': depth += 1
-#	if stripped[i] == '(': depth -= 1
-#	if depth == 0: break;
-#	i-=1
-#snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
-#`{$1}$0
-#endsnippet
+priority 1000
+context "math()"
+snippet '^.*\)/' "() frac" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i-=1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
 
 context "math()"
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
@@ -256,7 +257,7 @@ snippet lr[ "left[ right]" i
 endsnippet
 
 snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
+\left\langle${1:${VISUAL}} \right\rangle$0
 endsnippet
 
 context "math()"
@@ -409,6 +410,21 @@ endsnippet
 snippet nn "Tikz node" w
 \node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
 $0
+endsnippet
+
+context "math()"
+snippet cd "Commutative Diagram" w
+\begin{tikzcd}[row sep = large, column sep = large]
+	${1:topleft} \arrow[r, "${2:right}"] \arrow[d, "${3:down}"'] & ${4:topright} \arrow[d, "${5:down}"] \\\\
+	${6:bottomleft} \arrow[r, "${7:right}"']                & ${8:bottomright}               
+\end{tikzcd}
+endsnippet
+
+context "math()"
+snippet ses "Short Exact Sequence" w
+\begin{tikzcd}
+	0 \arrow[r] & $1 \arrow[r, "$2"] & $3 \arrow[r, "$4"] & $5 \arrow[r] & 0 
+\end{tikzcd}
 endsnippet
 
 context "math()"
