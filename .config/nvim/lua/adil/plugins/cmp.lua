@@ -37,7 +37,6 @@ return {
 				},
 				{ name = "path" },
 				{ name = "ultisnips" },
-				{ name = "buffer" },
 			}),
 		})
 	end,
