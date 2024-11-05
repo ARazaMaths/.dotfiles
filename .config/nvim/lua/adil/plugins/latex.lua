@@ -5,6 +5,7 @@ return {
 		init = function()
 			vim.g.vimtex_view_method = "zathura_simple"
 			vim.g.vimtex_quickfix_mode = 0
+			vim.g.vimtex_matchparen_enable = 0
 		end,
 	},
 
