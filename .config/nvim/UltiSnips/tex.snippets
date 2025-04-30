@@ -14,10 +14,10 @@ endglobal
 
 snippet template "Basic template" b
 \documentclass[12pt]{amsart}
-\usepackage{euler, latexsym, amssymb, amsfonts, enumerate, mathrsfs}
+\usepackage{mathpazo, latexsym, amssymb, amsfonts, enumerate, mathrsfs}
 \usepackage[all]{xy}
 \renewcommand{\familydefault}{ppl}
-
+\pagestyle{plain}
 \setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
 \setlength{\marginparwidth}{0in}
 \setlength{\marginparsep}{0in}
@@ -45,7 +45,7 @@ snippet template "Basic template" b
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{ex}[thm]{Exercise}
 
-\renewcommand{\det}{\text{det}}
+\DeclareMathOperator{\im}{im}
 
 \title{$1}
 \author{Adil Raza}
