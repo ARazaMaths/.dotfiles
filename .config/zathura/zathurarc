@@ -1,3 +1,5 @@
+set synctex true
+set synctex-editor-command "nvr --remote-silent +%{line} %{input}"
 set selection-clipboard clipboard
 
 set default-fg                rgba(205,214,244,1)
