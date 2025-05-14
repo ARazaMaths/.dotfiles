@@ -117,9 +117,9 @@ if ! shopt -oq posix; then
 fi
 
 alias sudo='sudo env PATH=$PATH'
-PATH=/usr/local/texlive/2024/bin/x86_64-linux:$PATH
-export PATH MANPATH=/usr/local/texlive/2024/texmf-dist/doc/man:$MANPATH
-export MANPATH INFOPATH=/usr/local/texlive/2024/texmf-dist/doc/info:$INFOPATH; export INFOPATH
+PATH=/usr/local/texlive/2025/bin/x86_64-linux:$PATH
+export PATH MANPATH=/usr/local/texlive/2025/texmf-dist/doc/man:$MANPATH
+export MANPATH INFOPATH=/usr/local/texlive/2025/texmf-dist/doc/info:$INFOPATH; export INFOPATH
 
 PATH=$HOME/.cargo/bin/:$PATH
 
