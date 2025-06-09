@@ -14,10 +14,15 @@ endglobal
 
 snippet template "Basic template" b
 \documentclass[12pt]{amsart}
-\usepackage{mathpazo, latexsym, amssymb, amsfonts, enumerate, mathrsfs}
-\usepackage[all]{xy}
-\renewcommand{\familydefault}{ppl}
+\usepackage{newpx, newpxmath, microtype, amsthm, thmtools, xcolor}
+\usepackage[backend=biber,style=alphabetic,doi=false]{biblatex}
+\usepackage[hidelinks]{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+
 \pagestyle{plain}
+
 \setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
 \setlength{\marginparwidth}{0in}
 \setlength{\marginparsep}{0in}
@@ -35,17 +40,28 @@ snippet template "Basic template" b
 \setlength{\headsep}{.3in} \setlength{\baselineskip}{3pt}
 \setlength{\parskip}{.5mm}
 
+\makeatletter
+\def\subsection{\@startsection{subsection}{2}%
+  \z@{.5\linespacing\@plus.7\linespacing}
+{.5\baselineskip}%
+  {\normalfont\centering\scshape}%
+}
+\makeatother
+
 \newtheorem{thm}{Theorem}[section]
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \theoremstyle{definition}
-\newtheorem{definition}[thm]{Definition}
+\newtheorem{defn}[thm]{Definition}
 \newtheorem{exmp}[thm]{Example}
 \newtheorem{rem}[thm]{Remark}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{ex}[thm]{Exercise}
+\newtheorem{fact}[thm]{Fact}
+
 
 \DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\codim}{codim}
 
 \title{$1}
 \author{Adil Raza}
@@ -154,30 +170,30 @@ snippet // "Fraction" iA
 \\frac{$1}{$2}$0
 endsnippet
 
-#snippet / "Fraction" i
-#\\frac{${VISUAL}}{$1}$0
-#endsnippet
-#
-#context "math()"
-#snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
-#\\frac{`!p snip.rv = match.group(1)`}{$1}$0
-#endsnippet
-#
-#priority 1000
-#context "math()"
-#snippet '^.*\)/' "() frac" wrA
-#`!p
-#stripped = match.string[:-1]
-#depth = 0
-#i = len(stripped) - 1
-#while True:
-#	if stripped[i] == ')': depth += 1
-#	if stripped[i] == '(': depth -= 1
-#	if depth == 0: break;
-#	i-=1
-#snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
-#`{$1}$0
-#endsnippet
+snippet / "Fraction" i
+\\frac{${VISUAL}}{$1}$0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "symbol frac" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+priority 1000
+context "math()"
+snippet '^.*\)/' "() frac" wrA
+`!p
+stripped = match.string[:-1]
+depth = 0
+i = len(stripped) - 1
+while True:
+	if stripped[i] == ')': depth += 1
+	if stripped[i] == '(': depth -= 1
+	if depth == 0: break;
+	i-=1
+snip.rv = stripped[0:i] + "\\frac{" + stripped[i+1:-1] + "}"
+`{$1}$0
+endsnippet
 
 context "math()"
 snippet '([A-Za-z])(\d)' "auto subscript" wrA
@@ -790,8 +806,17 @@ snippet ee "epsilon" iA
 endsnippet
 
 context "math()" 
-snippet o/ "empty set"
+snippet o/ "empty set" iA
 \emptyset
+endsnippet
+
+context "math()" 
+snippet mmm "mfrak m" iA
+\mathfrak{m}
+endsnippet
+
+snippet -- "item" iA
+\item
 endsnippet
 
 # vim:ft=snippets
