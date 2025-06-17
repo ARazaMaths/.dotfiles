@@ -7,7 +7,7 @@ return {
 		conform.setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
-				python = { "isort", "black" },
+				python = { "black" },
 				tex = { "latexindent" },
 			},
 			format_on_save = {
