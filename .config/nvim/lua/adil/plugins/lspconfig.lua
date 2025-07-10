@@ -31,7 +31,12 @@ return {
 			update_in_insert = true,
 		})
 
-		lspconfig.pyright.setup({
+		--lspconfig.pyright.setup({
+		--	on_attach = on_attach,
+		--	capabilities = capabilities,
+		--	filetypes = { "python" },
+		--})
+		lspconfig.ruff.setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 			filetypes = { "python" },
