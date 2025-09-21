@@ -3,25 +3,13 @@ return {
 	dependencies = { "hrsh7th/cmp-nvim-lsp" },
 
 	config = function()
-		local lspconfig = require("lspconfig")
-
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-		lspconfig["texlab"].setup({
+		vim.lsp.config("texlab", {
 			capabilities = capabilities,
 		})
 
-		--lspconfig["ltex"].setup({
-		--	capabilities = capabilities,
-		--	settings = {
-		--		ltex = {
-		--			language = "en-GB",
-		--		},
-		--	},
-		--	on_attach = on_attach,
-		--})
-
-		lspconfig["lua_ls"].setup({
+		vim.lsp.config("lua_ls", {
 			capabilities = capabilities,
 			settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 		})
@@ -31,15 +19,15 @@ return {
 			update_in_insert = true,
 		})
 
-		--lspconfig.pyright.setup({
-		--	on_attach = on_attach,
-		--	capabilities = capabilities,
-		--	filetypes = { "python" },
-		--})
-		lspconfig.ruff.setup({
-			on_attach = on_attach,
+		vim.lsp.config("ruff", {
 			capabilities = capabilities,
 			filetypes = { "python" },
+		})
+
+		vim.lsp.enable({
+			"texlab",
+			"lua_ls",
+			"ruff",
 		})
 	end,
 
