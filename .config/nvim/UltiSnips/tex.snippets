@@ -14,7 +14,8 @@ endglobal
 
 snippet template "Basic template" b
 \documentclass[12pt]{amsart}
-\usepackage{newpx, newpxmath, microtype, amsthm, thmtools, xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{newpx, newpxmath, microtype, amsthm, thmtools}
 \usepackage[backend=biber,style=alphabetic,doi=false]{biblatex}
 \usepackage[hidelinks]{hyperref}
 \usepackage[nameinlink,noabbrev]{cleveref}
@@ -22,23 +23,6 @@ snippet template "Basic template" b
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 
 \pagestyle{plain}
-
-\setlength{\oddsidemargin}{0cm} \setlength{\evensidemargin}{0cm}
-\setlength{\marginparwidth}{0in}
-\setlength{\marginparsep}{0in}
-\setlength{\marginparpush}{0in}
-\setlength{\topmargin}{0in}
-\setlength{\headheight}{0pt}
-\setlength{\headsep}{0pt}
-\setlength{\footskip}{.3in}
-\setlength{\textheight}{9.2in}
-\setlength{\textwidth}{6.5in}
-\setlength{\parskip}{4pt}
-
-\setlength{\textwidth}{16cm} \setlength{\topmargin}{-1.3cm}
-\setlength{\textheight}{24cm} \setlength{\headheight}{.1in}
-\setlength{\headsep}{.3in} \setlength{\baselineskip}{3pt}
-\setlength{\parskip}{.5mm}
 
 \makeatletter
 \def\subsection{\@startsection{subsection}{2}%
@@ -48,20 +32,30 @@ snippet template "Basic template" b
 }
 \makeatother
 
-\newtheorem{thm}{Theorem}[section]
+\newtheorem{thm}{Theorem}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{lem}[thm]{Lemma}
 \theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition}
-\newtheorem{exmp}[thm]{Example}
-\newtheorem{rem}[thm]{Remark}
+\newtheorem{defn}{Definition}
+\newtheorem{exmp}{Example}
+\newtheorem*{rem}{Remark}
 \newtheorem{prop}[thm]{Proposition}
-\newtheorem{ex}[thm]{Exercise}
-\newtheorem{fact}[thm]{Fact}
-
+\newtheorem{ex}{Exercise}
+\newtheorem*{fact}{Fact}
 
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\codim}{codim}
+
+\newcommand{\todo}{\color{red}{TO DO}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\A}{\mathbb{A}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\vphi}{\varphi}
+\newcommand{\vepsilon}{\varepsilon}
 
 \title{$1}
 \author{Adil Raza}
