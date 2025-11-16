@@ -3,4 +3,3 @@ set synctex-editor-command "nvr --remote-silent +%{line} %{input}"
 set selection-clipboard clipboard
 set guioptions none
 
-include catppuccin-mocha

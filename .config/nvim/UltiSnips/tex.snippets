@@ -52,7 +52,6 @@ snippet template "Basic template" b
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\A}{\mathbb{A}}
-\renewcommand{\P}{\mathbb{P}}
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\vphi}{\varphi}
 \newcommand{\vepsilon}{\varepsilon}
@@ -523,7 +522,7 @@ endsnippet
 
 priority 200
 context "math()"
-snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|pi|zeta|int)' "ln" rwA
+snippet '(?<!\\)(arcsin|arccos|arctan|arccot|arccsc|arcsec|zeta|int)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
@@ -617,15 +616,15 @@ endsnippet
 
 
 snippet RR "real" iA
-\R
+\mathbb{R}
 endsnippet
 
 snippet QQ "Q" iA
-\Q
+\mathbb{Q}
 endsnippet
 
 snippet ZZ "Z" iA
-\Z
+\mathbb{Z}
 endsnippet
 
 snippet <! "normal" iA
@@ -712,7 +711,7 @@ endsnippet
 
 context "math()"
 snippet PP "P" iA
-\P
+\mathbb{P}
 endsnippet
 
 context "math()"
@@ -792,11 +791,6 @@ snippet def "definition" w
 \begin{definition}
 	$1
 \end{definition
-endsnippet
-
-context "math()" 
-snippet ee "epsilon" iA
-\varepsilon
 endsnippet
 
 context "math()" 
