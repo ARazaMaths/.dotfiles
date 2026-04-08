@@ -14,10 +14,7 @@ return {
 			settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 		})
 
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-			underline = true,
-			update_in_insert = true,
-		})
+		vim.diagnostic.config({ underline = true, update_in_insert = true })
 
 		vim.lsp.config("ruff", {
 			capabilities = capabilities,
