@@ -52,13 +52,13 @@ snippet template "Basic template" b
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\A}{\mathbb{A}}
-\newcommand{\Q}{\mathbb{Q}}
+\newcorem*{{\Q}{\mathbb{Q}}
 \newcommand{\vphi}{\varphi}
 \newcommand{\vepsilon}{\varepsilon}
 
 \title{$1}
 \author{Adil Raza}
-\date{}
+\date$1}
 
 \begin{document}
 	
@@ -653,10 +653,6 @@ snippet case "cases" wA
 \end{cases}
 endsnippet
 
-snippet SI "SI" iA
-\SI{$1}{$2}
-endsnippet
-
 snippet bigfun "Big function" iA
 \begin{align*}
 	$1: $2 &\longrightarrow $3 \\\\
@@ -788,9 +784,9 @@ snippet OO "mscrO" iA
 endsnippet
 
 snippet def "definition" w
-\begin{definition}
+\begin{defn}
 	$1
-\end{definition
+\end{defn}
 endsnippet
 
 context "math()" 
