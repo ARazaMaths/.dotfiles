@@ -10,8 +10,13 @@ opt.shiftwidth = 2
 opt.signcolumn = "yes:1"
 opt.clipboard = "unnamedplus"
 opt.conceallevel = 1
-opt.spell = true
-opt.spelllang = en_gb
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "tex",
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.spelllang = "en_gb"
+	end,
+})
 opt.autochdir = true
 vim.wo.relativenumber = true
 vim.wo.number = true
