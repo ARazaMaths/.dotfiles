@@ -22,3 +22,4 @@ vim.wo.relativenumber = true
 vim.wo.number = true
 vim.api.nvim_set_keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", { noremap = true })
 vim.diagnostic.config({ virtual_text = true })
+vim.o.winborder = "rounded"
