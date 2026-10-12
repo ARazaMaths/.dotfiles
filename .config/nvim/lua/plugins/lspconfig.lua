@@ -4,8 +4,6 @@ vim.pack.add({
 })
 
 -- Keymaps
-vim.keymap.set("n", "K", vim.lsp.buf.hover)
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
 -- LSP configuration
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
